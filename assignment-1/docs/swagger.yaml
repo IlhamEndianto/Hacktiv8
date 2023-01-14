@@ -1,0 +1,86 @@
+info:
+  contact: {}
+paths:
+  /messages:
+    get:
+      consumes:
+      - application/json
+      description: get all message list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Get new messages
+      tags:
+      - Basic CRUD
+    post:
+      consumes:
+      - application/json
+      description: get string by ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Create new messages
+      tags:
+      - Basic CRUD
+  /messages/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete string by ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Delete new messages
+      tags:
+      - Basic CRUD
+    get:
+      consumes:
+      - application/json
+      description: get all message list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: GetByID new messages
+      tags:
+      - Basic CRUD
+    put:
+      consumes:
+      - application/json
+      description: Update messages by ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Update new messages
+      tags:
+      - Basic CRUD
+swagger: "2.0"
