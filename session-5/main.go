@@ -119,28 +119,28 @@ func main() {
 			report = echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 		}
 
-		if castedObject, ok := err.(validator.ValidationErrors); ok {
-			for _, err := range castedObject {
-				switch err.Tag() {
-				case "required":
-					report.Message = fmt.Sprintf("%s is required", err.Field())
-				case "email":
-					report.Message = fmt.Sprintf("%s is not a valid email address", err.Field())
-				case "gte":
-					report.Message = fmt.Sprintf("%s value must be greater than or equal %s", err.Field(), err.Param())
-				case "lte":
-					report.Message = fmt.Sprintf("%s value must be less than or equal %s", err.Field(), err.Param())
-				}
-			}
-		}
-
-		c.Logger().Error(report)
-		c.JSON(report.Code, report)
-
-		// errPage := fmt.Sprintf("%d.html", report.Code)
-		// if err := c.File(errPage); err != nil {
-		// 	c.HTML(report.Code, "Errrooooorrrr!!!")
+		// if castedObject, ok := err.(validator.ValidationErrors); ok {
+		// 	for _, err := range castedObject {
+		// 		switch err.Tag() {
+		// 		case "required":
+		// 			report.Message = fmt.Sprintf("%s is required", err.Field())
+		// 		case "email":
+		// 			report.Message = fmt.Sprintf("%s is not a valid email address", err.Field())
+		// 		case "gte":
+		// 			report.Message = fmt.Sprintf("%s value must be greater than or equal %s", err.Field(), err.Param())
+		// 		case "lte":
+		// 			report.Message = fmt.Sprintf("%s value must be less than or equal %s", err.Field(), err.Param())
+		// 		}
+		// 	}
 		// }
+
+		// c.Logger().Error(report)
+		// c.JSON(report.Code, report)
+
+		errPage := fmt.Sprintf("%d.html", report.Code)
+		if err := c.File(errPage); err != nil {
+			c.HTML(report.Code, "Errrooooorrrr!!!")
+		}
 	}
 
 	r.Start("localhost:9000")
