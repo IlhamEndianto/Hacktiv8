@@ -7,8 +7,9 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/IlhamEndianto/Hacktiv8/session-3/clientserver/common/config"
-	"github.com/IlhamEndianto/Hacktiv8/session-3/clientserver/common/model"
+	"Hacktiv8project/session-3/clientserver/common/config"
+	"Hacktiv8project/session-3/session-3/clientserver/common/model"
+
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
