@@ -5,7 +5,7 @@ package model;
 option go_package = "Hacktiv8project/session-3/model";
 
 import "google/protobuf/empty.proto";
-
+import "google/api/annotations.proto";
 enum UserGender {
     UNDEFINED = 0;
     MALE = 1;
@@ -24,6 +24,18 @@ message UserList{
 }
 
 service Users {
-    rpc Register(User) returns (google.protobuf.Empty){}
-    rpc List(google.protobuf.Empty) returns (UserList){}
+    rpc Register(User) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+          post : "/v1/users",
+          body:"*"
+        };
+      }
+      rpc List(google.protobuf.Empty) returns (UserList) {
+        option (google.api.http) = {
+          get : "/v1/users",
+        };
+      }
 }
+
+
+  

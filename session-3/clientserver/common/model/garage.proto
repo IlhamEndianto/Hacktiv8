@@ -6,7 +6,7 @@ package model;
 option go_package = "Hacktiv8project/session-3/model";
 
 import "google/protobuf/empty.proto";
-
+// import "google/api/annotations.proto";
 message GarageCoordinate {
     float latitude = 1;
     float longitude = 2;
