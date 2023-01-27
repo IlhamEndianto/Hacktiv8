@@ -1,15 +1,18 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"strconv"
 
-	"github.com/gorilla/mux"
-	"github.com/swaggo/http-swagger"
 	_ "Hacktiv8project/assignment-1/docs"
+
+	"github.com/gorilla/mux"
+	"github.com/jackc/pgx/v4/pgxpool"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 const Address = "localhost:8080"
@@ -22,7 +25,11 @@ type Option struct {
 	Value string `json:"value"`
 }
 
-var ResponseMessages []ResponseMessage
+var (
+	ResponseMessages []ResponseMessage
+	postgrespool     *pgxpool.Pool
+	perr             error
+)
 
 func main() {
 	r := mux.NewRouter()
@@ -34,6 +41,11 @@ func main() {
 			Message: "2",
 		},
 	}
+	postgrespool, perr = newPostgresPool("localhost", "5432", "postgresuser", "postgrespassword", "postgres")
+	if perr != nil {
+		log.Fatal(perr)
+	}
+
 	r.HandleFunc("/", LandingPage).Methods(http.MethodGet)
 	r.HandleFunc("/messages/Get", GorillaGet).Methods(http.MethodGet)
 	r.HandleFunc("/messages/{id}", GorillaGetById).Methods(http.MethodGet)
@@ -45,6 +57,18 @@ func main() {
 	http.HandleFunc("/two", PrintLetterTwo)
 	fmt.Println("service started")
 	log.Fatal(http.ListenAndServe(Address, r))
+}
+
+// newPostgresPool builds a pool of pgx client.
+func newPostgresPool(host, port, user, password, name string) (*pgxpool.Pool, error) {
+	connCfg := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+		host,
+		port,
+		user,
+		password,
+		name,
+	)
+	return pgxpool.Connect(context.Background(), connCfg)
 }
 
 func LandingPage(w http.ResponseWriter, r *http.Request) {
