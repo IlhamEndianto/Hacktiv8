@@ -20,7 +20,7 @@ var store = sessions.NewCookieStore([]byte(os.Getenv("SESSION_KEY")))
 
 func main() {
 	e := echo.New()
-	e.Renderer = driver.NewRenderer("template/*.html", true)
+	e.Renderer = driver.NewRenderer("template/*", true)
 	ctx := context.Background()
 	store := driver.NewPostgresStore()
 	pgPool, err := driver.NewPostgresConn(ctx)
