@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"Hacktiv8project/session-3/clientserver/common/config"
-	"Hacktiv8project/session-3/clientserver/common/model"
+	"github.com/IlhamEndianto/Hacktiv8/session-3/clientserver/common/config"
+	"github.com/IlhamEndianto/Hacktiv8/session-3/clientserver/common/model"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc"
