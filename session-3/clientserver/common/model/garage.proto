@@ -3,7 +3,7 @@ syntax = "proto3";
 package model;
 
 
-option go_package = "Hacktiv8project/session-3/model";
+option go_package = "github.com/IlhamEndianto/Hacktiv8/session-3/model";
 
 import "google/protobuf/empty.proto";
 // import "google/api/annotations.proto";
