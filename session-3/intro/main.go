@@ -1,11 +1,13 @@
 package main
 
 import (
-	"Hacktiv8project/session-3/model"
 	"bytes"
 	"fmt"
+	"log"
 	"os"
 	"strings"
+
+	"github.com/IlhamEndianto/Hacktiv8/session-3/intro/model"
 
 	"github.com/golang/protobuf/jsonpb"
 )
@@ -22,6 +24,7 @@ func main() {
 			user1,
 		},
 	}
+	log.Println("userList", userList)
 	garage1 := &model.Garage{
 		Id:   "g001",
 		Name: "Kalimdor",
@@ -40,6 +43,8 @@ func main() {
 			user1.Id: garageList,
 		},
 	}
+
+	log.Println("garageListByUser", garageListByUser)
 	fmt.Printf("# ==== Original\n 		%#v \n", user1)
 	fmt.Printf("# ==== As String\n 		%v \n", user1.String())
 
