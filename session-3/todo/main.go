@@ -78,11 +78,11 @@ func (t *TodoServer) Update(ctx context.Context, req *model.UpdateRequest) (*mod
 		Id:   req.GetId(),
 		Name: req.GetName(),
 	}
-	msg := req.GetId() + "successfully appended"
+	msg := req.GetId() + " successfully appended"
 	return &model.MutationResponse{Success: msg}, nil
 }
 func (t *TodoServer) Delete(ctx context.Context, req *model.DeleteRequest) (*model.MutationResponse, error) {
 	delete(Todos, req.GetId())
-	msg := req.GetId() + "successfully deleted"
+	msg := req.GetId() + " successfully deleted"
 	return &model.MutationResponse{Success: msg}, nil
 }
