@@ -1,8 +1,9 @@
 package driver
 
 import (
-	"Hacktiv8project/assignment-2/config"
 	"log"
+
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/config"
 
 	"github.com/antonlindstrom/pgstore"
 	"github.com/gorilla/sessions"

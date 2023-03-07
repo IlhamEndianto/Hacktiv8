@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"Hacktiv8project/assignment-2/config"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/config"
 
 	"github.com/antonlindstrom/pgstore"
 	"github.com/labstack/echo"

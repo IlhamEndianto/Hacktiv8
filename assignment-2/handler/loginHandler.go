@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"Hacktiv8project/assignment-2/config"
-	"Hacktiv8project/assignment-2/entity"
-	"Hacktiv8project/assignment-2/repository"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/config"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/entity"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/repository"
 
 	"github.com/antonlindstrom/pgstore"
 	"github.com/gorilla/sessions"
