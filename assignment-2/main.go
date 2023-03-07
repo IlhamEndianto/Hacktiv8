@@ -1,10 +1,10 @@
 package main
 
 import (
-	"Hacktiv8project/assignment-2/config"
-	"Hacktiv8project/assignment-2/driver"
-	"Hacktiv8project/assignment-2/handler"
-	"Hacktiv8project/assignment-2/repository"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/config"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/driver"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/handler"
+	"github.com/IlhamEndianto/Hacktiv8/assignment-2/repository"
 	"context"
 	"log"
 	"net/http"
